@@ -6,14 +6,17 @@ const incrementButtonEl = document.querySelector(
 );
 const spanEl = document.querySelector('span#value');
 
-decrementButtonEl.addEventListener('click', () => {
+decrementButtonEl.addEventListener('click', onDecrementBtnClick);
+incrementButtonEl.addEventListener('click', onIncrementBtnClick);
+
+function onDecrementBtnClick() {
   const valueNumber = Number(spanEl.textContent);
 
   spanEl.textContent = valueNumber - 1;
-});
+}
 
-incrementButtonEl.addEventListener('click', () => {
+function onIncrementBtnClick() {
   const valueNumber = Number(spanEl.textContent);
 
   spanEl.textContent = valueNumber + 1;
-});
+}

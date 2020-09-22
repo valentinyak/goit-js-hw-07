@@ -4,6 +4,6 @@ const factor =
   inputEl.value /
   parseInt(window.getComputedStyle(spanEl).getPropertyValue('font-size'));
 
-inputEl.addEventListener('input', () => {
-  spanEl.style.fontSize = inputEl.value / factor + 'px';
+inputEl.addEventListener('input', event => {
+  spanEl.style.fontSize = event.currentTarget.value / factor + 'px';
 });

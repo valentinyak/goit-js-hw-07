@@ -3,12 +3,17 @@ const divBoxesEl = document.querySelector('div#boxes');
 const createButtonEl = document.querySelector('button[data-action="render"]');
 const destroyButtonEl = document.querySelector('button[data-action="destroy"]');
 
-const createBoxes = function (amount) {
-  amount = Number(inputEl.value);
+createButtonEl.addEventListener('click', createBoxes);
+destroyButtonEl.addEventListener('click', destroyBoxes);
+
+function createBoxes(amount) {
   let width = 30;
   let height = 30;
+  const amountFromInput = Number(
+    amount.currentTarget.previousElementSibling.value,
+  );
 
-  for (let i = 0; i < amount; i += 1) {
+  for (let i = 0; i < amountFromInput; i += 1) {
     let createdDiv = document.createElement('div');
 
     createdDiv.style.backgroundColor = `rgb(
@@ -24,13 +29,10 @@ const createBoxes = function (amount) {
 
     divBoxesEl.appendChild(createdDiv);
   }
-};
+}
 
-const destroyBoxes = function () {
+function destroyBoxes() {
   while (0 < divBoxesEl.children.length) {
     divBoxesEl.removeChild(divBoxesEl.children[0]);
   }
-};
-
-createButtonEl.addEventListener('click', createBoxes);
-destroyButtonEl.addEventListener('click', destroyBoxes);
+}

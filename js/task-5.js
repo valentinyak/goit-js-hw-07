@@ -1,12 +1,10 @@
 const inputEl = document.querySelector('input#name-input');
 const outputEl = document.querySelector('span#name-output');
 
-inputEl.addEventListener('input', () => {
-  outputEl.textContent = inputEl.value;
-});
-
-inputEl.addEventListener('blur', () => {
-  if (inputEl.value.length === 0) {
+inputEl.addEventListener('input', event => {
+  if (event.currentTarget.value !== '') {
+    outputEl.textContent = event.currentTarget.value;
+  } else {
     outputEl.textContent = 'незнакомец';
   }
 });

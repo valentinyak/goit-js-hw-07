@@ -9,7 +9,10 @@ const ingredients = [
 
 const ingridientsListEl = document.querySelector('ul#ingredients');
 
-ingridientsListEl.textContent = 'Список ингридиентов';
+document.body.insertBefore(
+  document.createElement('h3'),
+  ingridientsListEl,
+).textContent = 'Список ингридиентов';
 
 ingredients.forEach(ingridient => {
   const element = document.createElement('li');
